@@ -1,0 +1,23 @@
+{
+  "name": "rps-again",
+  "version": "1.0.0",
+  "description": "Remaking Rock Paper Scissors while getting back into JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsalwaysbenny/rps-again.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itsalwaysbenny/rps-again/issues"
+  },
+  "homepage": "https://github.com/itsalwaysbenny/rps-again#readme",
+  "devDependencies": {
+    "jest": "^27.5.0"
+  }
+}
