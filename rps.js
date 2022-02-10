@@ -4,7 +4,7 @@ function add(a, b) {
   return a + b;
 } */
 
-function computerSelection() {
+function computerSelect() {
   let randomNumber = Math.floor(Math.random() * 3)
   if (randomNumber === 0) {
     return "Rock";
@@ -17,11 +17,14 @@ function computerSelection() {
   };
 };
 
-function playGame(playerSelection, computerSelection) {
+let computerSelection
+let playerSelection
+
+function playRound(playerSelection, computerSelection) {
   let computerChoice = computerSelection.toLowerCase();
   let playerChoice = playerSelection.toLowerCase();
   if (playerChoice === computerChoice) {
-    return "Game is a Draw";
+    return `Player chose ${playerSelection}, Computer chose ${computerSelection}, Game is a Draw`;
   } else if ((playerChoice === "rock") && (computerChoice === "scissors")) {
       return "Player chose Rock Computer chose Scissors Player Wins";
   } else if ((playerChoice === "scissors") && (computerChoice === "paper")) {
@@ -39,6 +42,15 @@ function playGame(playerSelection, computerSelection) {
   }
 };
 
+//do not know how to test this
+playGame = () => {
+  for (i = 0; i < 5; i++) {
+    playerSelection = prompt("Choose Rock Paper or Scissors");
+    computerSelection = computerSelect();
+    console.log("Game " + i)
+    console.log(playRound(playerSelection, computerSelection))
+  }
+}
 
 module.exports = computerSelection
-module.exports = playGame
+module.exports = playRound
