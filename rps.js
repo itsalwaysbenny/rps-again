@@ -19,25 +19,34 @@ function computerSelect() {
 
 let computerSelection
 let playerSelection
+let playerScore = 0;
+let computerScore = 0;
+let totalScore = playerScore + computerScore;
 
 function playRound(playerSelection, computerSelection) {
   let computerChoice = computerSelection.toLowerCase();
   let playerChoice = playerSelection.toLowerCase();
   if (playerChoice === computerChoice) {
-    return `Player chose ${playerSelection}, Computer chose ${computerSelection}, Game is a Draw`;
+    return `Player chose ${playerSelection}, Computer chose ${computerSelection}, Game is a Draw. Player Score: ${playerScore} Computer Score: ${computerScore}`;
   } else if ((playerChoice === "rock") && (computerChoice === "scissors")) {
-      return "Player chose Rock Computer chose Scissors Player Wins";
+      playerScore++
+      return `Player chose ${playerSelection}, Computer chose ${computerSelection}, Player Wins. Player Score: ${playerScore} Computer Score: ${computerScore}`;
   } else if ((playerChoice === "scissors") && (computerChoice === "paper")) {
-      return "Player chose Scissors Computer chose Paper Player Wins"
+      playerScore++
+      return `Player chose ${playerSelection}, Computer chose ${computerSelection}, Player Wins. Player Score: ${playerScore} Computer Score: ${computerScore}`;
   } else if ((playerChoice === "paper") && (computerChoice === "rock")) {
-      return "Player chose Paper Computer chose Rock Player Wins"
+      playerScore++
+      return `Player chose ${playerSelection}, Computer chose ${computerSelection}, Player Wins. Player Score: ${playerScore} Computer Score: ${computerScore}`;
   } else if ((playerChoice === "scissors") && (computerChoice === "rock")) {
-    return "Player chose Scissors Computer chose Rock Computer Wins";
-} else if ((playerChoice === "paper") && (computerChoice === "scissors")) {
-    return "Player chose Paper Computer chose Scissors Computer Wins"
-} else if ((playerChoice === "rock") && (computerChoice === "paper")) {
-    return "Player chose Rock Computer chose Paper Computer Wins"
-} else {
+      computerScore++
+      return `Player chose ${playerSelection}, Computer chose ${computerSelection}, Computer Wins. Player Score: ${playerScore} Computer Score: ${computerScore}`;
+  } else if ((playerChoice === "paper") && (computerChoice === "scissors")) {
+      computerScore++
+      return `Player chose ${playerSelection}, Computer chose ${computerSelection}, Computer Wins. Player Score: ${playerScore} Computer Score: ${computerScore}`;
+  } else if ((playerChoice === "rock") && (computerChoice === "paper")) {
+      computerScore++
+      return `Player chose ${playerSelection}, Computer chose ${computerSelection}, Computer Wins. Player Score: ${playerScore} Computer Score: ${computerScore}`;
+  } else {
     return "Please select either 'Rock', 'Paper' or 'Scissors'"
   }
 };
@@ -47,9 +56,14 @@ playGame = () => {
   for (i = 0; i < 5; i++) {
     playerSelection = prompt("Choose Rock Paper or Scissors");
     computerSelection = computerSelect();
-    console.log("Game " + i)
+    console.log("Game " + (i + 1))
     console.log(playRound(playerSelection, computerSelection))
   }
+}
+
+resetScores = () => {
+  playerScore = 0;
+  computerScore = 0;
 }
 
 module.exports = computerSelection
