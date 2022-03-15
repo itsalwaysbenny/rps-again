@@ -84,42 +84,48 @@ function playOneRound() {
   let computerSelection = compPick.toLowerCase();
   let playerSelection = this.id;
   let selectionReport = `Player Chose ${playerSelection}, Computer Chose ${computerSelection}.`
-  if (computerSelection === playerSelection) {
-    selections.textContent = selectionReport + " Game Drawn!"
+  if (playerScore === 5 || computerScore === 5) {
     scoresDiv.textContent = `Player Score: ${playerScore}.
      Computer Score: ${computerScore}`
-  } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
-    selections.textContent = selectionReport + " Player Won!"
-    playerScore++;
-    scoresDiv.textContent = `Player Score: ${playerScore}.
-     Computer Score: ${computerScore}`
-  } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
-    selections.textContent = selectionReport + " Player Won!"
-    playerScore++;
-    scoresDiv.textContent = `Player Score: ${playerScore}.
-    Computer Score: ${computerScore}`
-  } else if ((playerSelection === "paper") && (computerSelection === "rock")) {
-    selections.textContent = selectionReport + " Player Won!"
-    playerScore++;
-    scoresDiv.textContent = `Player Score: ${playerScore}.
-    Computer Score: ${computerScore}`
-  } else if ((playerSelection === "scissors") && (computerSelection === "rock")) {
-    selections.textContent = selectionReport + " Computer Won!"
-    computerScore++;
-    scoresDiv.textContent = `Player Score: ${playerScore}.
-    Computer Score: ${computerScore}`
-  } else if ((playerSelection === "paper") && (computerSelection === "scissors")) {
-    selections.textContent = selectionReport + " Computer Won!"
-    computerScore++;
-    scoresDiv.textContent = `Player Score: ${playerScore}.
-    Computer Score: ${computerScore}`
-  } else if ((playerSelection === "rock") && (computerSelection === "paper")) {
-    selections.textContent = selectionReport + " Computer Won!"
-    computerScore++;
-    scoresDiv.textContent = `Player Score: ${playerScore}.
-    Computer Score: ${computerScore}`
+     selections.textContent = "We have a winner! Restart the Game"
   } else {
-    console.log("ERROR!");
+      if (computerSelection === playerSelection) {
+          selections.textContent = selectionReport + " Game Drawn!"
+          scoresDiv.textContent = `Player Score: ${playerScore}.
+          Computer Score: ${computerScore}`
+      } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
+          selections.textContent = selectionReport + " Player Won!"
+          playerScore++;
+          scoresDiv.textContent = `Player Score: ${playerScore}.
+          Computer Score: ${computerScore}`
+      } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
+          selections.textContent = selectionReport + " Player Won!"
+          playerScore++;
+          scoresDiv.textContent = `Player Score: ${playerScore}.
+          Computer Score: ${computerScore}`
+      } else if ((playerSelection === "paper") && (computerSelection === "rock")) {
+          selections.textContent = selectionReport + " Player Won!"
+          playerScore++;
+          scoresDiv.textContent = `Player Score: ${playerScore}.
+          Computer Score: ${computerScore}`
+      } else if ((playerSelection === "scissors") && (computerSelection === "rock")) {
+          selections.textContent = selectionReport + " Computer Won!"
+          computerScore++;
+          scoresDiv.textContent = `Player Score: ${playerScore}.
+          Computer Score: ${computerScore}`
+      } else if ((playerSelection === "paper") && (computerSelection === "scissors")) {
+          selections.textContent = selectionReport + " Computer Won!"
+          computerScore++;
+          scoresDiv.textContent = `Player Score: ${playerScore}.
+          Computer Score: ${computerScore}`
+      } else if ((playerSelection === "rock") && (computerSelection === "paper")) {
+          selections.textContent = selectionReport + " Computer Won!"
+          computerScore++;
+          scoresDiv.textContent = `Player Score: ${playerScore}.
+          Computer Score: ${computerScore}`
+      } else {
+          console.log("ERROR!");
+    }
   }
 };
 
