@@ -65,13 +65,13 @@ let computerScore = 0;
 //Add event listeners first
 
 const rock = document.querySelector("#rock");
-rock.addEventListener("click", playerChoseRock);
+rock.addEventListener("click", playOneRound);
 
 const paper = document.querySelector("#paper");
-paper.addEventListener("click", playerChosePaper);
+paper.addEventListener("click", playOneRound);
 
 const scissors = document.querySelector("#scissors");
-scissors.addEventListener("click", playerChoseScissors);
+scissors.addEventListener("click", playOneRound);  
 
 const scoresDiv = document.querySelector("#scores");
 
@@ -79,73 +79,45 @@ const selections = document.querySelector("#selections");
 
 //create functions for each player selection
 
-function playerChoseRock() {
-  let computerSelection = computerSelect();
-  let playerSelection = "Rock";
+function playOneRound() {
+  let compPick = computerSelect()
+  let computerSelection = compPick.toLowerCase();
+  let playerSelection = this.id;
   let selectionReport = `Player Chose ${playerSelection}, Computer Chose ${computerSelection}.`
-  if (computerSelection === "Rock") {
+  if (computerSelection === playerSelection) {
     selections.textContent = selectionReport + " Game Drawn!"
     scoresDiv.textContent = `Player Score: ${playerScore}.
      Computer Score: ${computerScore}`
-  } else if (computerSelection === "Scissors") {
+  } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
     selections.textContent = selectionReport + " Player Won!"
     playerScore++;
-      /*if (playerScore === 5) {
-        alert("Player Wins the Match")
-      }*/
     scoresDiv.textContent = `Player Score: ${playerScore}.
      Computer Score: ${computerScore}`
-  } else if (computerSelection === "Paper") {
+  } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
+    selections.textContent = selectionReport + " Player Won!"
+    playerScore++;
+    scoresDiv.textContent = `Player Score: ${playerScore}.
+    Computer Score: ${computerScore}`
+  } else if ((playerSelection === "paper") && (computerSelection === "rock")) {
+    selections.textContent = selectionReport + " Player Won!"
+    playerScore++;
+    scoresDiv.textContent = `Player Score: ${playerScore}.
+    Computer Score: ${computerScore}`
+  } else if ((playerSelection === "scissors") && (computerSelection === "rock")) {
     selections.textContent = selectionReport + " Computer Won!"
     computerScore++;
     scoresDiv.textContent = `Player Score: ${playerScore}.
-     Computer Score: ${computerScore}`
-  } else {
-    console.log("ERROR!");
-  }
-};
-
-function playerChosePaper() {
-  let computerSelection = computerSelect();
-  let playerSelection = "Paper";
-  if (computerSelection === "Paper") {
-    selections.textContent = selectionReport + " Game Drawn!"
-    scoresDiv.textContent = `Player Score: ${playerScore}.
-     Computer Score: ${computerScore}`
-  } else if (computerSelection === "Rock") {
-    selections.textContent = selectionReport + " Player Won!"
-    playerScore++;
-    scoresDiv.textContent = `Player Score: ${playerScore}.
-     Computer Score: ${computerScore}`
-  } else if (computerSelection === "Scissors") {
+    Computer Score: ${computerScore}`
+  } else if ((playerSelection === "paper") && (computerSelection === "scissors")) {
     selections.textContent = selectionReport + " Computer Won!"
     computerScore++;
     scoresDiv.textContent = `Player Score: ${playerScore}.
-     Computer Score: ${computerScore}`
-  } else {
-    console.log("ERROR!");
-  }
-};
-
-function playerChoseScissors() {
-  let computerSelection = computerSelect();
-  let playerSelection = "Scissors";
-  let selectionReport = `Player Chose ${playerSelection}, Computer Chose ${computerSelection}.`
-  if (computerSelection === "Scissors") {
-    selections.textContent = selectionReport + " Game Drawn!"
-    scoresDiv.textContent = `Player Score: ${playerScore}.
-     Computer Score: ${computerScore}`
-  } else if (computerSelection === "Paper") {
-    selections.textContent = selectionReport + " Player Won!"
-    playerScore++;
-    scoresDiv.textContent = `Player Score: ${playerScore}.
-     Computer Score: ${computerScore}`
-  } else if (computerSelection === "Rock") {
-    selections.textContent = `Player Chose ${playerSelection}, Computer Chose ${computerSelection}.
-      Computer Won!`
+    Computer Score: ${computerScore}`
+  } else if ((playerSelection === "rock") && (computerSelection === "paper")) {
+    selections.textContent = selectionReport + " Computer Won!"
     computerScore++;
     scoresDiv.textContent = `Player Score: ${playerScore}.
-     Computer Score: ${computerScore}`
+    Computer Score: ${computerScore}`
   } else {
     console.log("ERROR!");
   }
@@ -167,7 +139,7 @@ reset.addEventListener("click", resetScores);
 function resetScores() {
   playerScore = 0;
   computerScore = 0;
-  selections.textContent = "Make a Selection"
+  selections.textContent = "First to 5 Wins. Make a selection"
   scoresDiv.textContent = `Player Score: ${playerScore}.
      Computer Score: ${computerScore}`
 }
