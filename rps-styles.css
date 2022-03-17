@@ -1,0 +1,36 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#text-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px
+}
+
+#selections {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px
+}
+
+#scores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #57578d;
+  align-items: center;
+  margin: 20px
+}
+
+button {
+  background-color: #719270;
+  color: #1f1f1f;
+  border-radius: 8px;
+}
